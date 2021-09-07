@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 70em;
+    perspective-origin: 50%;
+}
+
+.box{
+    position: relative;
+    width: 360px;
+    height: 360px;
+    transform-style: preserve-3d;
+    animation: rotate 8s linear infinite;
+    cursor: pointer;
+}
+
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg) rotateY(0deg);
+    }
+    0%{
+        transform: rotate(360deg) rotateY(360deg);
+    }
+}
+
+.face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: .5;
+    transition: transform 2s, opacity 2s;
+}
+
+.face > .side{
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    background-color: #3bc2fe;
+    box-shadow: inset 5px 5px 80px rgba(0, 0, 0, 0.5),
+                inset -5px -5px 80px rgba(0, 0, 0, 0.5);
+    border: 5px solid white;
+}
+
+.face .side:nth-child(2){
+    top: 0;
+    right: 0;
+}
+
+.face .side:nth-child(3){
+    bottom: 0;
+    left: 0;
+}
+
+.face .side:nth-child(4){
+    bottom: 0;
+    right: 0;
+}
+
+.box .one{
+    transform: rotateX(90deg) translateZ(180px);
+}
+
+.box .two{
+    transform:translateZ(180px);
+}
+
+.box .three{
+    transform: rotateY(90deg) translateZ(180px);
+}
+
+.box .four{
+    transform:rotateY(180deg) translateZ(180px);
+}
+
+.box .five{
+    transform: rotateY(-90deg) translateZ(180px);
+}
+
+.box .six{
+    transform:rotateX(-90deg) translateZ(180px) rotate(180deg);
+}
+
+.box .seven{
+    transform: translateZ(10px);
+}
+
+.box .eight{
+    transform:rotateY(180deg) translateZ(10px);
+}
+
+.box .nine{
+    transform: rotateX(90deg) translateZ(10px);
+}
+
+.box .ten{
+    transform:rotateX(-90deg) translateZ(10px) rotate(180deg);
+}
+ 
+.box:hover .side{
+    background-color: transparent;
+    box-shadow: 10px 10px 70px rgba(0, 97, 253, 0.897),
+                inset -10px -10px 70px rgba(0, 97, 253, 0.897);
+}
